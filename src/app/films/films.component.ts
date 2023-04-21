@@ -17,17 +17,12 @@ export class FilmsComponent implements OnInit{
   ngOnInit(): void {
     this.filmService.getFilms().subscribe((data) => {
       this.films = data;
-      console.log(data);
     })
   }
 
-  /*showFilms() {
-    this.filmService.getFilms()
-    .subscribe((data: Film) => this.film = {
-      id = this.film?.id,
-      title = this.film?.title,
-      image = this.film?.image,
-      releaseYear = this.film?.releaseYear,
-    });
+  /*goToDetails(film: Film): void {
+    this.filmService.getFilm(film.id.toString()).subscribe((data) => {
+      this
+    })
   }*/
 }

@@ -11,7 +11,8 @@
                         <p class="card-text">{{film.releaseYear}}</p>
                         <p class="card-text">{{film.director.name}}</p>
                         <p class="card-text">{{film.genre.name}}</p>
-                        <button type="button" class="btn btn-light">More info</button>
+                        
+                        <button type="button" class="btn btn-light" routerLink="/filmdetail/{{film.id}}">More info</button>
                     </div>
                 </div>
             </div>
