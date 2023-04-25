@@ -1,23 +1,49 @@
 <div class="body">
     <div class="row" *ngIf="film">
-        <div class="col-md-4 card" style="height: 550px">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
             <img class="card-img" style="width: 360px; height: auto; padding: 5px;" src="{{film.image}}"
                 alt="{{film.image}}" />
         </div>
-        <div class="col-md-8">
-            <div class="card">
+        <div class="col-md-4">
+            <div class="card" style="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;">
                 <div class="card-body">
                     <h2 class="card-title">{{film.title}}</h2>
                     <p><b>Release Year:</b> {{film.releaseYear}}</p>
                     <p><b>Genre:</b> {{film.genre.name}}</p>
                     <p class="mb-1"><b>Director:</b> {{film.director.name}}</p>
                     <div class="cardButtons">
-                        <a class="btn btn-warning" style="margin: 15px 5px 0px 0px;" routerLink="/filmform/{{film.id}}">Edit</a>
-                        <a class="btn btn-danger" style="margin: 15px 5px 0px 0px;" (click)="deleteFilm(film.id)">Delete</a>
-                        <a class="btn btn-secondary" style="margin: 15px 5px 0px 0px;" (click)="goBack()">Back</a>
+                        <a class="button-edit" style="margin: 15px 5px 0px 0px;"
+                            routerLink="/filmform/{{film.id}}">Edit</a>
+                        <a class="button-delete" style="margin: 15px 5px 0px 0px;" (click)="open(content)">Delete</a>
+                        <a class="button-back" role="button" style="margin: 15px 5px 0px 0px;"
+                            (click)="goBack()">Back</a>
                     </div>
                 </div>
             </div>
         </div>
+
+        <ng-template #content let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Film deletion</h4>
+                <button type="button" class="btn-close" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <strong>Are you sure you want to delete <span class="text-primary">{{film.title}}</span></strong>
+                </p>
+                <p>
+                    All information associated to this film will be permanently deleted.
+                    <span class="text-danger">This operation can not be undone.</span><br>
+                    If you are called Louis Boret don't regret it later
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">No</button>
+                <button type="button" class="btn btn-danger" (click)="deleteFilm(film.id)" (click)="modal.dismiss('cancel click')">Yes, delete</button>
+            </div>
+        </ng-template>
+
     </div>
-</div>
+</div><

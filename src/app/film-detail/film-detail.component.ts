@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FilmService } from '../film.service';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Film } from '../film';
 
 @Component({
@@ -9,6 +10,7 @@ import { Film } from '../film';
   templateUrl: './film-detail.component.html',
   styleUrls: ['./film-detail.component.css']
 })
+
 export class FilmDetailComponent implements OnInit {
   film?: Film;
 
@@ -19,8 +21,13 @@ export class FilmDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private filmService: FilmService,
-    private location: Location
+    private location: Location,
+    private modalService: NgbModal
   ) { }
+
+  open(content: any) {
+		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+	}
 
   getFilmDetails(): void {
     const id = String(this.route.snapshot.paramMap.get('id'));

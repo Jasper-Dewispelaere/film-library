@@ -1,5 +1,5 @@
 <div class="form-container" *ngIf="filmToAdd">
-    <h2 style="display: inline-block;">Add film</h2>
+    <h2>Add film</h2>
         <div class="form-group">
             <label for="title">Title: </label>
             <input type="text" id="title" [(ngModel)]="filmToAdd.title" placeholder="title" class="form-control">
@@ -29,7 +29,7 @@
             </select>
         </div>
 
-        <button type="button" class="btn btn-secondary" (click)="goBack()">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="saveFilm()">Save</button>
+        <button type="button" class="button-cancel" (click)="goBack()">Cancel</button>
+        <button type="button" class="button-save" (click)="saveFilm()">Save</button>
 
 </div>

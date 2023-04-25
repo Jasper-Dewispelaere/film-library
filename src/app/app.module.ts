@@ -9,6 +9,7 @@ import { FilmsComponent } from './films/films.component';
 import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { FilmFormComponent } from './film-form/film-form.component';
 import { FilmAddComponent } from './film-add/film-add.component';
+import { DirectorAddComponent } from './director-add/director-add.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FilmAddComponent } from './film-add/film-add.component';
     FilmDetailComponent,
     FilmFormComponent,
     FilmAddComponent,
-    FilmAddComponent
+    FilmAddComponent,
+    DirectorAddComponent
   ],
   imports: [
     BrowserModule,

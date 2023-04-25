@@ -45,6 +45,13 @@ export class FilmService {
       );
   }
 
+  AddDirector(director: any): Observable<any> {
+    return this.http.post<any>(this.filmUrl + "directors", director)
+      .pipe(
+        catchError(this.handleError<any>('AddDirector'))
+      );
+  }
+
   DeleteFilm(filmId: string) {
     return this.http.delete<string>(this.filmUrl + "films/" + filmId)
       .pipe(

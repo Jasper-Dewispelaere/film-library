@@ -1,0 +1,11 @@
+<div class="form-container" *ngIf="directorToAdd">
+    <h2>Add Director</h2>
+        <div class="form-group">
+            <label for="name">Name: </label>
+            <input type="text" id="name" [(ngModel)]="directorToAdd.name" placeholder="name" class="form-control">
+        </div>
+
+        <button type="button" class="button-cancel" (click)="goBack()">Cancel</button>
+        <button type="button" class="button-save" (click)="saveDirector()">Save</button>
+
+</div>

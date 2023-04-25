@@ -1,5 +1,9 @@
 <div class="body">
-    <button class="addFilm-btn" role="button" routerLink="/filmadd">Add Film</button>
+    <div class="heading">
+        <button class="addFilm-btn" role="button" routerLink="/filmadd">Add Film</button>
+        <button class="addFilm-btn" role="button" routerLink="/directoradd">Add Director</button>
+    </div>
+
     <div class="row" style="margin-left: 25px;">
         <div class="hero-container" style="max-width: 350px; margin:5px;" *ngFor="let film of films">
             <div class="main-container">
