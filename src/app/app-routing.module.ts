@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { FilmsComponent } from './films/films.component';
 import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { FilmFormComponent } from './film-form/film-form.component';
+import { FilmAddComponent } from './film-add/film-add.component';
 
 const routes: Routes = [
   { path: '', redirectTo:'/films', pathMatch: 'full' },
   { path: 'films', component: FilmsComponent },
   { path: 'filmdetail/:id', component: FilmDetailComponent },
-  { path: 'filmform', component: FilmFormComponent },
+  { path: 'filmform/:id', component: FilmFormComponent },
+  { path: 'filmadd', component: FilmAddComponent },
 ];
 
 @NgModule({

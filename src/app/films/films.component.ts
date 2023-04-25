@@ -19,10 +19,4 @@ export class FilmsComponent implements OnInit{
       this.films = data;
     })
   }
-
-  /*goToDetails(film: Film): void {
-    this.filmService.getFilm(film.id.toString()).subscribe((data) => {
-      this
-    })
-  }*/
 }

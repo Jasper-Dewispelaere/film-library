@@ -1,7 +1,7 @@
 <div class="body">
-    <div class="row">
+    <div class="row" *ngIf="film">
         <div class="col-md-4 card" style="height: 550px">
-            <img class="card-img" style="width: auto; height: auto; padding: 5px;" src="{{film.image}}"
+            <img class="card-img" style="width: 360px; height: auto; padding: 5px;" src="{{film.image}}"
                 alt="{{film.image}}" />
         </div>
         <div class="col-md-8">
@@ -12,9 +12,9 @@
                     <p><b>Genre:</b> {{film.genre.name}}</p>
                     <p class="mb-1"><b>Director:</b> {{film.director.name}}</p>
                     <div class="cardButtons">
-                        <a class="btn btn-warning" style="margin: 15px 5px 0px 0px;">Edit</a>
-                        <a class="btn btn-danger" style="margin: 15px 5px 0px 0px;">Delete</a>
-                        <a class="btn btn-secondary" style="margin: 15px 5px 0px 0px;">Back</a>
+                        <a class="btn btn-warning" style="margin: 15px 5px 0px 0px;" routerLink="/filmform/{{film.id}}">Edit</a>
+                        <a class="btn btn-danger" style="margin: 15px 5px 0px 0px;" (click)="deleteFilm(film.id)">Delete</a>
+                        <a class="btn btn-secondary" style="margin: 15px 5px 0px 0px;" (click)="goBack()">Back</a>
                     </div>
                 </div>
             </div>

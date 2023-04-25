@@ -1,18 +1,20 @@
 <div class="body">
+    <button class="addFilm-btn" role="button" routerLink="/filmadd">Add Film</button>
     <div class="row" style="margin-left: 25px;">
-        <div class="card mb-3" style="max-width: 350px; margin:5px;" *ngFor="let film of films">
-            <div class="row no-gutters" style="background-color: whitesmoke; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
-                <div class="col-md-4">
-                    <img src="{{film.image}}" class="card-img" alt="{{film.image}}">
+        <div class="hero-container" style="max-width: 350px; margin:5px;" *ngFor="let film of films">
+            <div class="main-container">
+                <div class="poster-container">
+                    <a routerLink="/filmdetail/{{film.id}}"><img src="{{film.image}}" class="poster" /></a>
                 </div>
-                <div class="col-md-7">
-                    <div class="card-body">
-                        <h5 class="card-title">{{film.title}}</h5>
-                        <p class="card-text">{{film.releaseYear}}</p>
-                        <p class="card-text">{{film.director.name}}</p>
-                        <p class="card-text">{{film.genre.name}}</p>
-                        
-                        <button type="button" class="btn btn-light" routerLink="/filmdetail/{{film.id}}">More info</button>
+                <div class="film-container">
+                    <div class="film__content">
+                        <h4 class="film-title">{{film.title}}</h4>
+                        <p class="film-info">
+                            {{film.genre.name}},
+                            {{film.releaseYear}}
+                        </p>
+                        <p class="film-director">A film by {{film.director.name}}</p>
+                        <button class="moreInfo-btn" routerLink="/filmdetail/{{film.id}}">More Info</button>
                     </div>
                 </div>
             </div>

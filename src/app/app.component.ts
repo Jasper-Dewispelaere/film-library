@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UUID } from 'angular2-uuid';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Film Library';
+  uuidValue?:string;
+  constructor() {
+   }
+
+  generateUUID(){
+    this.uuidValue=UUID.UUID();
+    return this.uuidValue;
+  }
 }
