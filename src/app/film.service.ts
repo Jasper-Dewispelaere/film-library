@@ -14,9 +14,22 @@ export class FilmService {
   constructor(private http: HttpClient) { }
 
   filmUrl = 'https://localhost:5001/api/';
+  myfilms: Film[] = [];
 
   getFilms() {
     return this.http.get<Film[]>(this.filmUrl + "Films/");
+    
+  }
+
+  orderFilms()
+  {
+    let film = this.getFilms().subscribe((data) => {
+      this.myfilms = data;
+      
+    })
+    console.log(this.myfilms);
+    let finddata = this.myfilms.find(i => i.genre.id === '00000000-0000-0000-0000-000000000001');
+    console.log(finddata);
   }
 
   getDirectors() {

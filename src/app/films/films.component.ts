@@ -8,8 +8,9 @@ import { Observable, catchError } from 'rxjs';
   templateUrl: './films.component.html',
   styleUrls: ['./films.component.css']
 })
-export class FilmsComponent implements OnInit{
-  films: any;
+export class FilmsComponent implements OnInit {
+  films: Film[] = [];
+  action: any;
   errorMessage: string | undefined;
 
   constructor(private filmService: FilmService) { }
@@ -17,6 +18,10 @@ export class FilmsComponent implements OnInit{
   ngOnInit(): void {
     this.filmService.getFilms().subscribe((data) => {
       this.films = data;
+      this.action = this.films.find(i => i.genre.id == '00000000-0000-0000-0000-000000000001');
+      
+      console.log(this.films);
+      console.log(this.action);
     })
   }
 }

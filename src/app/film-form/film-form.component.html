@@ -1,37 +1,80 @@
-<div class="form-container" *ngIf="filmToEdit">
-        <h2 style="display: inline-block;">Edit <b>{{filmToEdit.title}}</b></h2>
-        <img class="film-image" src="{{filmToEdit.image}}">
-    <div class="form-group">
-        <label for="title">Title: </label>
-        <input type="text" [(ngModel)]="filmToEdit.title" id="title" (value)="filmToEdit.title" placeholder="title" class="form-control" >
+<div class="body">
+    <div class="row" *ngIf="filmToEdit">
+        <div class="col-md-3">
+            <img class="edit-img" src="{{filmToEdit.image}}">
+        </div>
+        <div class="col-md-6">
+            <div class="form-container">
+                <h2 style="display: inline-block;">Edit <b>{{filmToEdit.title}}</b></h2>
+                <form #editFilmForm="ngForm">
+
+                    <div class="form-group">
+                        <label for="title" class="formLabel">
+                            Title:
+                            <div *ngIf="title.invalid" class="alert">
+                                <div *ngIf="title.errors?.['required']">
+                                    Title is required!
+                                </div>
+                            </div>
+                        </label>
+                        <input type="text" name="title" id="title" required [(ngModel)]="filmToEdit.title"
+                            placeholder="title" class="form-control" #title="ngModel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Image (Url): </label>
+                        <input type="text" name="image" [(ngModel)]="filmToEdit.image" id="image" value="{{filmToEdit.image}}"
+                            placeholder="image(url)" class="form-control" #image="ngModel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="releaseYear" class="formLabel">
+                            Release Year:
+                            <div *ngIf="releaseYear.invalid" class="alert">
+                                <div *ngIf="releaseYear.errors?.['required']">
+                                    Release Year is required!
+                                </div>
+                            </div>
+                        </label>
+                        <input type="text" name="releaseYear" id="releaseYear" required
+                            [(ngModel)]="filmToEdit.releaseYear" placeholder="releaseYear" class="form-control"
+                            #releaseYear="ngModel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="director" class="formLabel">
+                            Director:
+                            <div *ngIf="director.invalid" class="alert">
+                                <div *ngIf="director.errors?.['required']">
+                                    Director is required!
+                                </div>
+                            </div>
+                        </label>
+                        <select class="form-select" name="director" #director="ngModel" required
+                            [(ngModel)]="filmToEdit.director.id">
+                            <option *ngFor="let director of directors" [value]="director.id">{{director.name}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genre" class="formLabel">
+                            Genre:
+                            <div *ngIf="genre.invalid" class="alert">
+                                <div *ngIf="genre.errors?.['required']">
+                                    Genre is required!
+                                </div>
+                            </div>
+                        </label>
+                        <select class="form-select" name="genre" #genre="ngModel" required
+                            [(ngModel)]="filmToEdit.genre.id">
+                            <option *ngFor="let genre of genres" [value]="genre.id">{{genre.name}}</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="button-cancel" (click)="goBack()">Cancel</button>
+                    <button type="button" class="button-save" (click)="saveFilm()" [disabled]="editFilmForm.invalid">Save</button>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <div class="form-group">
-        <label for="image">Image (Url): </label>
-        <input type="text" [(ngModel)]="filmToEdit.image" id="image" value="{{filmToEdit.image}}" placeholder="image(url)" class="form-control" >
-    </div>
-
-    <div class="form-group">
-        <label for="releaseYear">Release Year: </label>
-        <input type="number" [(ngModel)]="filmToEdit.releaseYear" id="releaseYear" value="{{filmToEdit.releaseYear}}" placeholder="Release Year"
-            class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label for="director">Director: </label>
-        <select value="{{filmToEdit.director.id}}" [(ngModel)]="filmToEdit.director.id"  class="form-select">
-            <option *ngFor="let director of directors" [value]="director.id">{{director.name}}</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="genre">Genre: </label>
-        <select value="{{filmToEdit.genre.id}}" [(ngModel)]="filmToEdit.genre.id" class="form-select">
-            <option *ngFor="let genre of genres"  [value]="genre.id">{{genre.name}}</option>
-        </select>
-    </div>
-
-    <button type="button" class="button-cancel" (click)="goBack()">Cancel</button>
-    <button type="button" class="button-save" (click)="saveFilm()">Save</button>
-
 </div>

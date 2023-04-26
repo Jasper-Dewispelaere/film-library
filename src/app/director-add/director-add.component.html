@@ -1,11 +1,28 @@
-<div class="form-container" *ngIf="directorToAdd">
-    <h2>Add Director</h2>
-        <div class="form-group">
-            <label for="name">Name: </label>
-            <input type="text" id="name" [(ngModel)]="directorToAdd.name" placeholder="name" class="form-control">
+<div class="body">
+    <div class="row" *ngIf="directorToAdd">
+        <div class="col-md-3"></div>
+        <div class="col-md-5">
+            <div class="form-container">
+                <h2>Add a Director</h2>
+                <form #addDirectorForm="ngForm">
+                    <div class="form-group">
+                        <label for="name" class="formLabel">
+                            Director name:
+                            <div *ngIf="name.invalid" class="alert">
+                                <div *ngIf="name.errors?.['required']">
+                                    Director name is required!
+                                </div>
+                            </div>
+                        </label>
+                        <input type="text" name="name" id="name" required [(ngModel)]="directorToAdd.name"
+                            placeholder="name" class="form-control" #name="ngModel">
+                    </div>
+
+                    <button type="button" class="button-cancel" (click)="goBack()">Cancel</button>
+                    <button type="button" class="button-save" (click)="saveDirector()"
+                        [disabled]="addDirectorForm.invalid">Save</button>
+                </form>
+            </div>
         </div>
-
-        <button type="button" class="button-cancel" (click)="goBack()">Cancel</button>
-        <button type="button" class="button-save" (click)="saveDirector()">Save</button>
-
+    </div>
 </div>

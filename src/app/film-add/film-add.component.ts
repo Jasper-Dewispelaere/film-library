@@ -6,6 +6,7 @@ import { UUID } from 'angular2-uuid';
 import { Film } from '../film';
 import { Genre } from '../genre';
 import { Director } from '../director';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-film-add',
@@ -20,19 +21,23 @@ export class FilmAddComponent implements OnInit{
 
   ngOnInit(): void {
     this.fillOptions();
-    console.log(this.filmToAdd);
   }
 
   constructor(
     private route: ActivatedRoute,
     private filmService: FilmService,
-    private location: Location
+    private location: Location,
+    private modalService: NgbModal
   ) { }
 
   generateUUID(){
     this.uuidValue=UUID.UUID();
     return this.uuidValue;
   }
+
+  open(content: any) {
+		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+	}
 
   fillOptions() {
     this.filmService.getDirectors().subscribe((data) => {

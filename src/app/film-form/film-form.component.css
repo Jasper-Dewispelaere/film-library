@@ -6,16 +6,27 @@
     display: inline-block;
 }
 
-.film-image {
-    width: 50px;
+.edit-img {
+    width: 360px;
     height: auto;
-    margin-left: 10px;
-    display: inline-block;
+    margin: 15px;
 }
 
 .form-group {
     margin: 10px;
 }
+
+.formLabel {
+    font-size: 17px;
+    margin-bottom: -5px;
+  }
+  
+  .alert {
+    color: red;
+    font-size: 18px;
+    margin: -10px;
+    display: inline-block;
+  }
 
 button {
     margin: 5px 5px 0 10px;
