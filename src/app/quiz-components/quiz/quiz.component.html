@@ -1,25 +1,27 @@
 <div class="quizContainer" *ngIf="quizstarted == false">
-    <h1 >Welcome to the Film Quiz</h1>
+    <button class="answer-button" style="position: absolute;top: 0;left: 0; margin:10px;" routerLink="/films">← Back to Films</button>
+    <h1 class="heading">Welcome to the Film Quiz</h1>
     <h3>Click the play button to start</h3>
-    <button class="btn btn-primary" (click)="startQuiz()">PLAY</button>
+    <button class="answer-button" (click)="startQuiz()">PLAY</button>
 </div>
 
 <div class="quizContainer" *ngIf="quizstarted && quizended == false">
     <div class="container">
         <h3>Score: {{score}}/5</h3>
-        <button class="btn btn-danger" style="position: absolute;top: 0;right: 0; margin:10px;" (click)="stopQuiz()">Stop Quiz</button>
+        <button class="stop-button" style="position: absolute;top: 0;right: 0; margin:10px;" (click)="stopQuiz()">Stop Quiz</button>
         <h2 class="question">{{progress}}: {{question.question}}</h2>
         <div class="answers">
-            <button class="btn btn-light" (click)="checkAnswer(question.answers[0])">{{question.answers[0].possibleAnswer}}</button>
-            <button class="btn btn-light" (click)="checkAnswer(question.answers[1])">{{question.answers[1].possibleAnswer}}</button><br>
-            <button class="btn btn-light" (click)="checkAnswer(question.answers[2])">{{question.answers[2].possibleAnswer}}</button>
-            <button class="btn btn-light" (click)="checkAnswer(question.answers[3])">{{question.answers[3].possibleAnswer}}</button>
+            <button class="answer-button" (click)="checkAnswer(question.answers[0])">{{question.answers[0].possibleAnswer}}</button>
+            <button class="answer-button" (click)="checkAnswer(question.answers[1])">{{question.answers[1].possibleAnswer}}</button><br>
+            <button class="answer-button" (click)="checkAnswer(question.answers[2])">{{question.answers[2].possibleAnswer}}</button>
+            <button class="answer-button" (click)="checkAnswer(question.answers[3])">{{question.answers[3].possibleAnswer}}</button>
         </div>
     </div>
 </div>
 
 <div class="quizContainer" *ngIf="quizended">
-    <h1>Thank you for playing!</h1>
+    <button class="answer-button" style="position: absolute;top: 0;left: 0; margin:10px;" routerLink="/films">← Back to Films</button>
+    <h1 class="heading">Thank you for playing!</h1>
     <h3>Your final score was: {{score}}</h3>
-    <button class="btn btn-primary" (click)="playAgain()">Play Again?</button>
+    <button class="answer-button" (click)="playAgain()">Play Again?</button>
 </div>
