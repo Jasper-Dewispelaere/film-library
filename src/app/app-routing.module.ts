@@ -5,6 +5,7 @@ import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { FilmFormComponent } from './film-form/film-form.component';
 import { FilmAddComponent } from './film-add/film-add.component';
 import { DirectorAddComponent } from './director-add/director-add.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 const routes: Routes = [
   { path: '', redirectTo:'/films', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'filmform/:id', component: FilmFormComponent },
   { path: 'filmadd', component: FilmAddComponent },
   { path: 'directoradd', component: DirectorAddComponent },
+  { path: 'quiz', component: QuizComponent },
 ];
 
 @NgModule({

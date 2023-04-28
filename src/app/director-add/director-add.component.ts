@@ -17,7 +17,7 @@ export class DirectorAddComponent implements OnInit{
   uuidValue?:string;
 
   ngOnInit(): void {
-    this.fillOptions();
+    this.GenerateNewDirector();
   }
 
   constructor(
@@ -31,7 +31,7 @@ export class DirectorAddComponent implements OnInit{
     return this.uuidValue;
   }
 
-  fillOptions() {
+  GenerateNewDirector() {
     this.directorToAdd = {
       id: this.generateUUID(),
       name: ''

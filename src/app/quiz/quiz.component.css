@@ -1,0 +1,16 @@
+.quizContainer {
+    display: flow;
+    justify-content: center;
+    text-align: center;
+}
+.question {
+    display: flow;
+    justify-content: center;
+    text-align: center;
+}
+.answers {
+    display: flow;
+    margin-top: 15px;
+    justify-content: center;
+    text-align: center;
+}

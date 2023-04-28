@@ -1,7 +1,17 @@
-<div class="body">
+<div [class.horror]="onHorror">
     <div class="heading">
         <button class="addFilm-btn" role="button" routerLink="/filmadd">Add Film</button>
         <button class="addFilm-btn" role="button" routerLink="/directoradd">Add Director</button>
+        <button class="addFilm-btn" role="button" routerLink="/quiz">Quiz</button>
+        <div ngbDropdown class="genreDropdown">
+            <button type="button" class="genreSelect-btn" id="dropdownBasic1" ngbDropdownToggle>
+                Select Genre
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem class="dropdownItem" (click)="allGenres()">All Genres</button>
+                <button ngbDropdownItem class="dropdownItem" *ngFor="let genre of genres" (click)="selectGenre(genre.id)">{{genre.name}}</button>
+            </div>
+        </div>
     </div>
 
     <div class="row" style="margin-left: 25px;">

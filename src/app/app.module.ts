@@ -10,6 +10,8 @@ import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { FilmFormComponent } from './film-form/film-form.component';
 import { FilmAddComponent } from './film-add/film-add.component';
 import { DirectorAddComponent } from './director-add/director-add.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { QuizComponent } from './quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +21,16 @@ import { DirectorAddComponent } from './director-add/director-add.component';
     FilmFormComponent,
     FilmAddComponent,
     FilmAddComponent,
-    DirectorAddComponent
+    DirectorAddComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
