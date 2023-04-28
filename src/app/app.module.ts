@@ -11,7 +11,7 @@ import { FilmFormComponent } from './film-form/film-form.component';
 import { FilmAddComponent } from './film-add/film-add.component';
 import { DirectorAddComponent } from './director-add/director-add.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { QuizComponent } from './quiz/quiz.component';
+import { QuizComponent } from './quiz-components/quiz/quiz.component';
 
 @NgModule({
   declarations: [
