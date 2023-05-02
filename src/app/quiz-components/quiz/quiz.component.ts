@@ -53,7 +53,7 @@ export class QuizComponent {
       this.wrong = true;
       this.questionAnswered = true;
 
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 4; i++) {
         if (this.question.answers[i].isRightAnswer == true) {
           this.correctAnswer = this.question.answers[i];
         }
