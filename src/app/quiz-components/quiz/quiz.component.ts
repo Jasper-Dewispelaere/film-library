@@ -14,6 +14,10 @@ export class QuizComponent {
   score: number = 0;
   progress: number = 1;
   question: any;
+  correctAnswer: any;
+  correct: boolean = false;
+  wrong: boolean = false;
+  questionAnswered: boolean = false;
   previousQuestions: number[] = [];
 
   constructor(private quizService: QuizService) { }
@@ -27,6 +31,9 @@ export class QuizComponent {
     this.quizstarted = false;
     this.question = null;
     this.progress = 1;
+    this.wrong = false;
+    this.correct = false;
+    this.questionAnswered = false;
     this.previousQuestions.splice(0);
     this.score = 0;
   }
@@ -43,21 +50,33 @@ export class QuizComponent {
 
   checkAnswer(answer: any): void {
     if (answer.isRightAnswer == false) {
-      this.progress++;
-      this.checkProgress();
+      this.wrong = true;
+      this.questionAnswered = true;
+
+      for (let i = 0; i < 3; i++) {
+        if (this.question.answers[i].isRightAnswer == true) {
+          this.correctAnswer = this.question.answers[i];
+        }
+      }
     }
     else {
       this.score++;
-      this.progress++;
-      this.checkProgress();
+      this.correct = true;
+      this.questionAnswered = true;
     }
   }
 
   checkProgress(): void {
+    this.questionAnswered = false;
+    this.progress++;
     if (this.progress == 6) {
       this.quizended = true;
+      this.wrong = false;
+      this.correct = false;
     }
     else {
+      this.wrong = false;
+      this.correct = false;
       this.showNextQuestion();
     }
   }

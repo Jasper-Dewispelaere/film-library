@@ -67,7 +67,7 @@ export class QuizService {
                 ]
             },
             {
-                id: 8, question: 'Where did "the Shining" take place', answers: [
+                id: 8, question: 'Where did "the Shining" take place?', answers: [
                     { id: 1, possibleAnswer: 'Amusement Park', isRightAnswer: false },
                     { id: 2, possibleAnswer: 'Haunted House', isRightAnswer: false },
                     { id: 3, possibleAnswer: 'Boat', isRightAnswer: false },
@@ -155,7 +155,7 @@ export class QuizService {
                 ]
             },
             {
-                id: 18, question: 'From where is this famous quote "My mama always said life was like a box of chocolates"', answers: [
+                id: 18, question: 'From where is this famous quote "My mama always said life was like a box of chocolates"?', answers: [
                     { id: 1, possibleAnswer: 'The Truman Show', isRightAnswer: false },
                     { id: 2, possibleAnswer: 'Forrest Gump', isRightAnswer: true },
                     { id: 3, possibleAnswer: 'The Shawshank Redemption', isRightAnswer: false },
@@ -171,7 +171,7 @@ export class QuizService {
                 ]
             },
             {
-                id: 20, question: 'What is the main murder weapon of Ghostface from "Scream"', answers: [
+                id: 20, question: 'What is the main murder weapon of Ghostface from "Scream"?', answers: [
                     { id: 1, possibleAnswer: 'Chainsaw', isRightAnswer: false },
                     { id: 2, possibleAnswer: 'Knife', isRightAnswer: true },
                     { id: 3, possibleAnswer: 'Gun', isRightAnswer: false },
@@ -187,7 +187,7 @@ export class QuizService {
                 ]
             },
             /*{
-                id: 20, question: '', answers: [
+                id: 22, question: '', answers: [
                     { id: 1, possibleAnswer: '', isRightAnswer: false },
                     { id: 2, possibleAnswer: '', isRightAnswer: false },
                     { id: 3, possibleAnswer: '', isRightAnswer: true },
